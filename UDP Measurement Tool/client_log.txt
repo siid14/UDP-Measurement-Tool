@@ -1,0 +1,18 @@
+UDP Client started, connecting to 127.0.0.1:8888
+Sending 10 packets of 64 bytes with 0.50 seconds delay
+Packet #1, RTT: 0.000216 seconds
+Packet #2, RTT: 0.000216 seconds
+Packet #3, RTT: 0.000152 seconds
+Packet #4, RTT: 0.000162 seconds
+Packet #5, RTT: 0.000332 seconds
+Packet #6, RTT: 0.000174 seconds
+Packet #7, RTT: 0.000378 seconds
+Packet #8, RTT: 0.000369 seconds
+Packet #9, RTT: 0.000352 seconds
+Packet #10, RTT: 0.000330 seconds
+
+Summary:
+Packets sent: 10
+Packets received: 10
+Packet loss: 0.00%
+Average RTT: 0.000268 seconds

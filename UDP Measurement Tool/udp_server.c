@@ -32,6 +32,12 @@ int main(int argc, char *argv[]) {
     int port = DEFAULT_PORT;                      // port number to listen on
     char client_ip[INET_ADDRSTRLEN];              // buffer for client ip string
     
+    // Check the current working directory
+    char cwd[1024];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current working directory: %s\n", cwd);
+    }
+    
     // parse command line arguments for custom port
     if (argc > 1) {
         port = atoi(argv[1]);
@@ -114,6 +120,7 @@ int main(int argc, char *argv[]) {
         
         fprintf(log_file, "Received packet #%d from %s:%d, OWD: %.6f seconds\n",
                 seq_num, client_ip, ntohs(client_addr.sin_port), owd);
+        fflush(log_file);
         
         // echo the packet back to client for rtt measurement
         if (sendto(server_socket, buffer, recv_len, 0,
