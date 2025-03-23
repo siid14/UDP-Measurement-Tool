@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
         }
     }
     
-    // this code is never reached due to the infinite loop, but added for completeness
+    // ! never reached due to the infinite loop, but added for completeness
     close(server_socket);
     fclose(log_file);
     

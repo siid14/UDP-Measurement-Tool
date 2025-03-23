@@ -34,4 +34,4 @@ double get_current_time() {
     return tv.tv_sec + (tv.tv_usec / 1000000.0); // convert to seconds with microsecond precision
 }
 
-#endif /* COMMON_H */ 
+#endif
