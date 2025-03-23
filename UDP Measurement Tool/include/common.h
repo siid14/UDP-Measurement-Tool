@@ -1,35 +1,37 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <time.h>
-#include <sys/time.h>
-#include <errno.h>
-#include <signal.h>
+// standard c libraries required for networking and time functions
+#include <stdio.h>         // for input/output functions
+#include <stdlib.h>        // for memory allocation and utility functions
+#include <string.h>        // for string manipulation functions
+#include <unistd.h>        // for unix standard functions
+#include <sys/types.h>     // for system data types
+#include <sys/socket.h>    // for socket functions
+#include <netinet/in.h>    // for internet address structures
+#include <arpa/inet.h>     // for ip address manipulation functions
+#include <time.h>          // for time functions
+#include <sys/time.h>      // for high precision time functions
+#include <errno.h>         // for error handling
+#include <signal.h>        // for signal handling
 
-#define DEFAULT_PORT 8888
-#define TIMEOUT_SEC 2      // Timeout in seconds for client waiting for response
-#define TIMEOUT_USEC 0     // Timeout in microseconds
+// default constants
+#define DEFAULT_PORT 8888  // default udp port to use
+#define TIMEOUT_SEC 2      // timeout in seconds for client waiting for response
+#define TIMEOUT_USEC 0     // timeout in microseconds (additional precision)
 
-// Packet structure
+// packet header structure definition
 typedef struct {
-    int seq_num;           // Sequence number
-    double timestamp;      // Timestamp in seconds since epoch
-    char data[0];          // Flexible array member for payload
+    int seq_num;           // sequence number to identify each packet
+    double timestamp;      // timestamp in seconds since epoch (send time)
+    char data[0];          // flexible array member for payload data
 } packet_header_t;
 
-// Get current time in seconds with microsecond precision
+// function to get current time with microsecond precision
 double get_current_time() {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return tv.tv_sec + (tv.tv_usec / 1000000.0);
+    struct timeval tv;     // time value structure
+    gettimeofday(&tv, NULL); // get current system time
+    return tv.tv_sec + (tv.tv_usec / 1000000.0); // convert to seconds with microsecond precision
 }
 
 #endif /* COMMON_H */ 
