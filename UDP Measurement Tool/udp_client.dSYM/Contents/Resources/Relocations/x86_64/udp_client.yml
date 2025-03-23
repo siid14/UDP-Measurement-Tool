@@ -1,0 +1,9 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     udp_client
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _get_current_time, symObjAddr: 0x0, symBinAddr: 0x100000F10, symSize: 0x40 }
+  - { offset: 0xFF, size: 0x8, addend: 0x0, symName: _get_current_time, symObjAddr: 0x0, symBinAddr: 0x100000F10, symSize: 0x40 }
+  - { offset: 0x194, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x40, symBinAddr: 0x100000F50, symSize: 0xBF0 }
+  - { offset: 0x48E, size: 0x8, addend: 0x0, symName: __OSSwapInt16, symObjAddr: 0xC30, symBinAddr: 0x100001B40, symSize: 0x20 }
+...
